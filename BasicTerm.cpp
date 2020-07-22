@@ -145,6 +145,29 @@ void BasicTerm::set_color(uint8_t fg, uint8_t bg) {
     serial->print("m");
 }
 
+void BasicTerm::set_fg_color(uint8_t fg) {
+    serial->print(F("\x1b["));
+    if (fg < 8) {
+      serial->print(30 + fg);
+    }
+    else
+    {
+      serial->print("38;5;");
+      serial->print(fg);
+    }
+//    serial->print(";");
+//    serial->print(40 + bg);
+    serial->print("m");
+}
+
+void BasicTerm::set_bg_color(uint8_t bg) {
+    serial->print(F("\x1b["));
+//    serial->print(30 + fg);
+//    serial->print(";");
+    serial->print(40 + bg);
+    serial->print("m");
+}
+
 void BasicTerm::beep(void) {
     serial->print(F("\x07"));
 }

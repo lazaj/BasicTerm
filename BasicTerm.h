@@ -27,6 +27,8 @@ class BasicTerm : public Stream {
 #define BT_CYAN      6
 #define BT_WHITE     7
 
+#define BT_H_YELLOW 	11
+
 #define BT_KEY_UNKNOWN      0401
 #define BT_KEY_DOWN         0402
 #define BT_KEY_UP           0403
@@ -76,6 +78,8 @@ class BasicTerm : public Stream {
         void show_cursor(boolean);
         void set_attribute(uint8_t);
         void set_color(uint8_t, uint8_t);
+        void set_fg_color(uint8_t);
+        void set_bg_color(uint8_t);
 	void beep(void);
         int16_t get_key(void);
 
